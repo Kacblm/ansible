@@ -1,0 +1,9 @@
+  # PHP
+  - name: "Installing php fpm and php mysql"
+    ansible.builtin.apt:
+      name: "{{ item }}" # здесь мы будем перечислять пакеты для установки, поэтому вместо имени здесь плейсхолдер
+      state: "latest"
+      update_cache: true
+    with_items: # а вот тут уже и перечисляем, ansible сам их подcтавит вместо {{ name }}
+      - "php-fpm"
+      - "php-mysql"

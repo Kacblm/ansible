@@ -1,0 +1,18 @@
+# ############# #
+# LEMP PLAYBOOK #
+# ############# #
+---
+
+- hosts: "all"
+  become: true
+  roles:
+  - nginx
+  - mysql
+  - php
+  tasks:
+ 
+  
+  - name: "Reload nginx"
+    ansible.builtin.service:
+      name: "nginx"
+      state: "reloaded"
