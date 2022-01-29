@@ -1,0 +1,13 @@
+---
+
+
+  - name: "Install requirements for docker"
+    ansible.builtin.apt:
+      name: "{{ item }}"
+      state: "latest"
+    with_items:
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+      - itop
